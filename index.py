@@ -1,4 +1,6 @@
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -8,7 +10,7 @@ import os
 login = os.getenv('LOGIN_PONTO')
 password = os.getenv('PASSWORD_PONTO')
 
-browser = webdriver.Chrome()
+browser = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 browser.get("https://pontosecullum4-01.secullum.com.br/ponto4web/821220936#login")
 delay = 3
 try:
