@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException
 import os
+import time
 
 login = os.getenv('LOGIN_PONTO')
 password = os.getenv('PASSWORD_PONTO')
@@ -30,6 +31,7 @@ try:
 
     register_button = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.XPATH, '//*[@id="registrar"]')))
     register_button.click()
+    time.sleep(3)
 
 except TimeoutException:
     print ("Loading took too much time!")
